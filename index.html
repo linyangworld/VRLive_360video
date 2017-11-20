@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!-- As if this Glitch were a typical HTML CodePen... -->    
+    <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+    
+    <!-- Use components defined in separate files. -->
+    <script src="js/arrow-key-rotation.js"></script>
+    <script src="js/play-on-window-click.js"></script>
+    <script src="js/play-on-vrdisplayactivate-or-enter-vr.js"></script>
+    <script src="js/hide-once-playing.js"></script>
+
+    <!-- Specify our scene. -->
+    <a-scene>
+      <!-- The original example also has this 180 degree rotation, to appear to be going forward. -->
+      <a-videosphere rotation="0 180 0" src="#video" 
+                     play-on-window-click
+                     play-on-vrdisplayactivate-or-enter-vr>
+      </a-videosphere>
+      
+      <!-- Define camera with zero user height, movement disabled and arrow key rotation added. -->
+      <a-camera user-height="0" wasd-controls-enabled="false" arrow-key-rotation>
+      </a-camera>      
+      
+      <!-- Wait for the video to load. -->
+      <a-assets>
+        <!-- Single source video. -->
+        <video id="video" style="display:none" autoplay loop crossorigin="anonymous" playsinline webkit-playsinline>
+          <!-- MP4 video source. -->
+          <source type="video/mp4" src="360test.mp4">
+          <!-- <source type="video/mp4" src="blob:https://www.twitch.tv/69e3d0ab-cda6-fc47-be0a-a78799cac68b" /> -->
+          <!-- <source type="video/mp4" src="https://www.twitch.tv/69e3d0ab-cda6-fc47-be0a-a78799cac68b" /> -->
+          <!-- <source type="video/mp4" src="https://ucarecdn.com/fadab25d-0b3a-45f7-8ef5-85318e92a261/"> -->
+        </video>
+      </a-assets>
+    </a-scene>
+  </body>
+</html>
